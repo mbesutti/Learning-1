@@ -16,7 +16,7 @@ function aggiungi {
 	expressions+=("${key^^}")
 	echo "I candidati presentatori sono al momento:"
 	echo
-	echo "${expressions[@]}"
+	printf "* "'%s\n' "${expressions[@]}"
 	echo	
 }
 
@@ -26,7 +26,6 @@ function rimuovi {
 	trim=${key//[[:blank:]]/}
 	for i in "${!expressions[@]}"; do
 		if [[ "${expressions[$i]}" = "${trim^^}" ]]; then
-			#unset expressions["${i}"]
 			expressions=(${expressions[@]:0:$i} ${expressions[@]:$(expr $i + 1)})
 			trovato=1
 		fi
@@ -38,14 +37,13 @@ function rimuovi {
 	fi
 	echo "I candidati presentatori sono al momento:"
 	echo
-	echo "${expressions[@]}"
+	printf "* "'%s\n' "${expressions[@]}"
 	echo	
 }
 
 echo
 echo "I candidati presentatori sono al momento:"
 echo
-#echo "${expressions[@]}"
 printf "* "'%s\n' "${expressions[@]}"
 echo
 echo "Durante l'esecuzione dello script usa una delle seguenti opzioni:"
