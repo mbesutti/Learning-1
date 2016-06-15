@@ -21,7 +21,8 @@ function aggiungi {
 }
 
 function rimuovi {
-	echo "Rimuovi un nuovo possibile presentatore:"
+	trovato=0
+	echo "Rimuovi un presentatore:"
 	read  key
 	trim=${key//[[:blank:]]/}
 	for i in "${!expressions[@]}"; do
@@ -32,7 +33,7 @@ function rimuovi {
 	done
 	if [[ "$trovato" -ne 1 ]]; then
 		echo
-		echo "!!!ATTENZIONE!!! Il presentatore che si è cercato di rimuovere non esiste!"
+		echo "!!!ATTENZIONE!!! Il presentatore che si e' cercato di rimuovere non esiste!"
 		echo
 	fi
 	echo "I candidati presentatori sono al momento:"
