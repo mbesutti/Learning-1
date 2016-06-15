@@ -1,6 +1,6 @@
 #!/bin/bash
 
-expressions=("DARIO" "STEFANO" "VALENTINO" "VACCA" "GENNARO")
+expressions=("DARIO" "STEFANO" "VALENTINO" "VACCA" "GENNARO", "ALE")
 RANDOM=$(( ( RANDOM % 10 )  + 1 ))
 
 function scegli {
@@ -11,13 +11,19 @@ function scegli {
 }
 
 function aggiungi {
+	trovato=0
 	echo "Inserisci un nuovo possibile presentatore:"
 	read  key
-	expressions+=("${key^^}")
-	echo "I candidati presentatori sono al momento:"
-	echo
-	printf "* "'%s\n' "${expressions[@]}"
-	echo	
+	trim=${key//[[:blank:]]/}
+	cerca $trim 
+	if [[ "$trovato" -ne 1 ]]; then
+		inserisci $trim
+	else	
+		echo
+		echo "Esiste gia' un possibile presentatore col nome appena inserito"
+		echo
+	fi
+		
 }
 
 function rimuovi {
@@ -25,12 +31,7 @@ function rimuovi {
 	echo "Rimuovi un presentatore:"
 	read  key
 	trim=${key//[[:blank:]]/}
-	for i in "${!expressions[@]}"; do
-		if [[ "${expressions[$i]}" = "${trim^^}" ]]; then
-			expressions=(${expressions[@]:0:$i} ${expressions[@]:$(expr $i + 1)})
-			trovato=1
-		fi
-	done
+	cerca $trim 
 	if [[ "$trovato" -ne 1 ]]; then
 		echo
 		echo "!!!ATTENZIONE!!! Il presentatore che si e' cercato di rimuovere non esiste!"
@@ -40,6 +41,25 @@ function rimuovi {
 	echo
 	printf "* "'%s\n' "${expressions[@]}"
 	echo	
+}
+
+function cerca(){
+	token=$1
+	for i in "${!expressions[@]}"; do
+		if [[ "${expressions[$i]}" = "${token^^}" ]]; then
+			expressions=(${expressions[@]:0:$i} ${expressions[@]:$(expr $i + 1)})
+			trovato=1
+		fi
+	done
+}
+
+
+function inserisci(){
+	expressions+=("${trim^^}")
+	echo "I candidati presentatori sono al momento:"
+	echo
+	printf "* "'%s\n' "${expressions[@]}"
+	echo
 }
 
 echo
