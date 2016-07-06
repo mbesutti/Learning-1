@@ -1,6 +1,6 @@
 #!/bin/bash
 
-expressions=("DARIO" "STEFANO" "VALENTINO" "VACCA" "GENNARO", "ALE")
+expressions=("DARIO" "STEFANO" "VALENTINO" "VACCA" "GENNARO" "ALE" "TIA" "MANLIO" "MASSI" "GABRI" "ENRI" "CHICCO" "PINO" "MATTEO")
 RANDOM=$(( ( RANDOM % 10 )  + 1 ))
 
 function scegli {
