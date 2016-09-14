@@ -2,10 +2,10 @@ package learning4;
 
 public class MonitorQueue implements Queue{
 	private Queue queue = new BaseQueue();
-	private int maxWaterMark = 0;
+	private int waterMark = 0;
 	
 	public int waterMark(){
-		return maxWaterMark;
+		return waterMark;
 	}
 
 	@Override
@@ -16,7 +16,7 @@ public class MonitorQueue implements Queue{
 	@Override
 	public int enqueue(Object value) {
 		int size = queue.enqueue(value);
-		maxWaterMark = Math.max(size, maxWaterMark);
+		waterMark = Math.max(size, waterMark);
 		return size;
 	}
 
