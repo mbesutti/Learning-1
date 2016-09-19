@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+/Data/Reporting/Stefano/Learning/Workspace/.metadata/.plugins/org.eclipse.jdt.core
+2824365561.index
