@@ -5,11 +5,13 @@ public class Course {
 	private final String _name;
 	private final Integer _number;
 	private final String _description;
+	private final String _date;
 
-	public Course(String courseName, Integer courseNumber, String description) {
+	public Course(String courseName, Integer courseNumber, String description, String date) {
 		_name = courseName;
 		_number = courseNumber;
 		_description = description;
+		_date = date;
 	}
 
 	public String description(){
@@ -18,6 +20,10 @@ public class Course {
 
 	public String name() {
 		return _name;
+	}
+
+	public String date() {
+		return _date;
 	}
 
 	public Integer number() {

@@ -17,7 +17,7 @@ public class PrintTest {
 
 	@Before
 	public void setUp() {
-		Seminar seminar = new Seminar("Zürich", new Course("Computer science", 1, "Lorem ipsum dolor sit amet"));
+		Seminar seminar = new Seminar("Zürich", new Course("Computer science", 1, "Lorem ipsum dolor sit amet", "15.01.2016"));
 		seminar.enroll(new Student("Ugo", "Campione"));
 		seminar.enroll(new Student("Sandra", "Bach"));
 		_printFactory = new PrintFactory(seminar);
@@ -39,6 +39,7 @@ public class PrintTest {
 				"<body>"+
 				"<div>Computer science:</div>"+
 				"<ul>"+
+				"<li>15.01.2016</li>"+
 				"<li>Lorem ipsum dolor sit amet</li>"+
 				"<li>Zürich</li>"+
 				"<li>18</li>"+
@@ -55,7 +56,7 @@ public class PrintTest {
 
 	@Test
 	public void csv() {
-		String expected = "\"1\";\"Computer science\";\"Lorem ipsum dolor sit amet\";\"Zürich\";\"18\"\n" +
+		String expected = "\"1\";\"Computer science\";\"15.01.2016\";\"Lorem ipsum dolor sit amet\";\"Zürich\";\"18\"\n" +
 				"\"Ugo\";\"Campione\"\n" +
 				"\"Sandra\";\"Bach\"";
 		assertEquals(expected, _printFactory.printCsv());

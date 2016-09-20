@@ -16,16 +16,16 @@ public class SeminarDetails {
 
 
 	private void start() {
-		Seminar matematica = new Seminar("Lugano", new Course("Fondamenti di matematica", 1, "Aritmetica di base"));
+		Seminar matematica = new Seminar("Lugano", new Course("Fondamenti di matematica", 1, "Aritmetica di base", "15.01.2016"));
 		Student stefano = new Student("Stefano", "Coluccia");
 		matematica.enroll(stefano);
 		matematica.enroll(new Student("ValentN-ANO", "Decarli"));
 		matematica.enroll(new Student("Manlio", "VaccaLuzzo"));
 		
-		Seminar informatica = new Seminar("Manno", new Course("informatica", 2, "Sequence diagrams"));
+		Seminar informatica = new Seminar("Manno", new Course("informatica", 2, "Sequence diagrams", "15.01.2016"));
 		informatica.enroll(stefano);
 		
-		Seminar chimica = new Seminar("Bioggio", new Course("Chimica", 3, "Ossidoriduzioni"));
+		Seminar chimica = new Seminar("Bioggio", new Course("Chimica", 3, "Ossidoriduzioni", "15.01.2016"));
 		
 		List<Seminar> seminars = Arrays.asList(matematica, informatica, chimica);
 		

@@ -24,6 +24,7 @@ public class PrintFactory {
 
 		String courseDetails = "<div>" + _seminar.course().name() + ":</div>" +
 				"<ul>" +
+				"<li>" + _seminar.course().date() + "</li>" +
 					"<li>" + _seminar.course().description() + "</li>" +
 					"<li>" + _seminar.location() + "</li>" +
 					"<li>" + _seminar.seatsLeft() + "</li>" +
@@ -54,6 +55,7 @@ public class PrintFactory {
 
 		return quote(_seminar.course().number()) + ";" +
 				quote(_seminar.course().name()) + ";" +
+				quote(_seminar.course().date()) + ";" +
 				quote(_seminar.course().description()) + ";" +
 				quote(_seminar.location()) + ";" +
 				quote(_seminar.seatsLeft()) + System.getProperty("line.separator") +
